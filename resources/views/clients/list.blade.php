@@ -2,13 +2,13 @@
 @extends('layouts.admin')
         
         {{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-        @section('title','登録済みのプロフィール')
+        @section('title','施設一覧')
         
         {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
         @section('content')
-            <div class= "container">
+    <div class= "container">
                 <div class= "row">
-                    <h2>登録済みのプロフィール</h2>        
+                    <h2>施設一覧</h2>        
                 </div>
                 <div class="row">
                     <div class="list-news col-md-12 mx-auto">
@@ -16,21 +16,21 @@
                             <table class="table table-dark">
                                 <thead>
                                     <tr>
-                                        <th width="10%">ID</th>
-                                        <th width="20%">名前</th>
-                                        <th width="20%">性別</th>
-                                        <th width="20%">趣味</th>
-                                        <th width="50%">自己紹介欄</th>
+                                        <th width="10%">業態</th>
+                                        <th width="20%">施設名</th>
+                                        <th width="10%">床数</th>
+                                        <th width="10%"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach( $profile_form as $profile)
+                                    @foreach($clients as $client)
                                         <tr>
-                                            <th>{{ $profile->id }}</th>
-                                            <td>{{ $profile->name }}</td>
-                                            <td>{{ $profile->gender }}</td>
-                                            <td>{{ \Str::limit($profile->hobby,100) }}</td>
-                                            <td>{{ \Str::limit($profile->introduction,100) }}</td>
+                                            <td>{{ $client->facility_type}}</td>
+                                            <td>{{ $client->user_name }}</td>
+                                            <td>{{ $client->number_of_bed }}</td>
+                                            <td>
+                                                <a href="{{ action('SalesController@add',['id' => $client->id])}}" role="button" class="btn btn-primary">実績入力</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
