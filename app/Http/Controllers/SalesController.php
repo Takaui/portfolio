@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Client;
+use Auth;
 
 class SalesController extends Controller
 {
@@ -40,9 +42,8 @@ class SalesController extends Controller
         return view('sales.create',['clients' =>$client]);
     }
     
-    public function addkari(){
-        
-        return view('clients.list');
+    public function list(Request $request){
+        $client = Client::all();
+        return view('clients.list',['clients' => $client]);
     }
-    
 }

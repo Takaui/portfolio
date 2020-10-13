@@ -21,13 +21,13 @@
                             <div class="form-group row">
                                 <label class="col-md-2">施設名</label>
                                     <div class="col-md-10">
-                                        <input type="text" class="form-control" name="user_name" value="">
+                                        <input type="text" class="form-control" name="user_name" >
                                     </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-2">床数</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" name="number_of_bed" value="">
+                                    <input type="text" class="form-control" name="number_of_bed" >
                             </div>
                         </div>
                          {{ csrf_field() }}
