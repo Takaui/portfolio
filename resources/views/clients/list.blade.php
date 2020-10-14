@@ -8,7 +8,7 @@
         @section('content')
     <div class= "container">
                 <div class= "row">
-                    <h2>施設一覧</h2>        
+                    <h2>施設一覧 </h2>        
                 </div>
                 <div class="row">
                     <div class="list-news col-md-12 mx-auto">
