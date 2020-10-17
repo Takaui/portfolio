@@ -15,7 +15,7 @@ class CreateSalesReportsTable extends Migration
     {
         Schema::create('sales_reports', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
+            $table->integer('client_id');
             $table->integer('tapeM-price');
             $table->integer('tapeM-count');
             $table->integer('tapeL-price');

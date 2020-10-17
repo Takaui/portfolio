@@ -12,25 +12,27 @@ class SalesController extends Controller
     //
     public function add(){
         
+        $client = Client::find($request->id);
+
         $year = date('Y');
         $years = array();
         for($i=$year ;$i >= 2018;$i--){
             array_push($years,$i);
         }
-        return view('sales.create',[ 'years' => $years]);
+        return view('sales.create',[ 'years' => $years,'client'=>$client]);
     }
     
     public function create(Request $request){
         
-        $SalesResult = new SalesResult;
+        $SalesReport = new SalesReport;
         $form = $request->all();
         
         unset($form['_token']);
         
-        $SalesResult->fill($form);
-        $SalesResult->save();
+        $SalesReport->fill($form);
+        $SalesReport->save();
         
-        return redirect('sales/create');
+        return redirect('sales/report/create');
         
     }
     

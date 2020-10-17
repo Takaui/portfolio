@@ -152,7 +152,7 @@
                                     </tr>
                                 </table>
                             </div>
-                        <input type="hidden" name="id" value="{{ $client -> user_id }}">
+                        <input type="hidden" name="client_id" value="{{ $client -> id }}">
                         {{ csrf_field() }}
                         <input type="submit" class="btn btn-primary" value="送信">
                     </div>
