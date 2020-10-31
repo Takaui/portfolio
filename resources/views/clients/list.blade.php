@@ -16,20 +16,26 @@
                             <table class="table table-dark">
                                 <thead>
                                     <tr>
+                                        <th width="10%">ID</th>
                                         <th width="10%">業態</th>
-                                        <th width="20%">施設名</th>
+                                        <th width="15%">施設名</th>
                                         <th width="10%">床数</th>
+                                        <th width="10%"></th>
                                         <th width="10%"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($clients as $client)
                                         <tr>
+                                            <td>{{ $client->id }}</td>
                                             <td>{{ $client->facility_type}}</td>
                                             <td>{{ $client->user_name }}</td>
                                             <td>{{ $client->number_of_bed }}</td>
                                             <td>
                                                 <a href="{{ action('SalesController@add',['id' => $client->id])}}" role="button" class="btn btn-primary">実績入力</a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ action('SalesController@result',['id' => $client->id]) }}" role="button" class="btn btn-primary">実績確認</a>
                                             </td>
                                         </tr>
                                     @endforeach

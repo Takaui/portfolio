@@ -19,18 +19,18 @@
                                     @endforeach
                                 </select>
                                 <select name="month">
-                                    <option value="apr">4月</option>
-                                    <option value="may">5月</option>
-                                    <option value="jun">6月</option>
-                                    <option value="jul">7月</option>
-                                    <option value="aug">8月</option>
-                                    <option value="sep">9月</option>
-                                    <option value="oct">10月</option>
-                                    <option value="nov">11月</option>
-                                    <option value="dec">12月</option>
-                                    <option value="jan">1月</option>
-                                    <option value="feb">2月</option>
-                                    <option value="mar">3月</option>
+                                    <option value="4">4月</option>
+                                    <option value="5">5月</option>
+                                    <option value="6">6月</option>
+                                    <option value="7">7月</option>
+                                    <option value="8">8月</option>
+                                    <option value="9">9月</option>
+                                    <option value="10">10月</option>
+                                    <option value="11">11月</option>
+                                    <option value="12">12月</option>
+                                    <option value="1">1月</option>
+                                    <option value="2">2月</option>
+                                    <option value="3">3月</option>
                                 </select>
                             </div>
                             <div class="form-group row">
@@ -45,10 +45,10 @@
                                             <label>テープM</label>
                                         </th>
                                         <td>
-                                            <input type="text" class="form-control" name="tepuM-price" >
+                                            <input type="text" class="form-control" name="tapeM_price" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="tepuM-count" >
+                                            <input type="text" class="form-control" name="tapeM_count" >
                                         </td>
                                     </tr>
                                      <tr>
@@ -56,10 +56,10 @@
                                             <label>テープL</label>
                                         </th>
                                         <td>
-                                            <input type="text" class="form-control" name="tepuL-price" >
+                                            <input type="text" class="form-control" name="tapeL_price" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="tepuL-count" >
+                                            <input type="text" class="form-control" name="tapeL_count" >
                                         </td>
                                     </tr>
                                     <tr>
@@ -67,10 +67,10 @@
                                             <label>パンツM</label>
                                         </th>
                                         <td>
-                                            <input type="text" class="form-control" name="pantsM-price" >
+                                            <input type="text" class="form-control" name="pantsM_price" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="pantsM-count" >
+                                            <input type="text" class="form-control" name="pantsM_count" >
                                         </td>
                                     </tr>
                                     <tr>
@@ -78,10 +78,10 @@
                                             <label>パンツL</label>
                                         </th>
                                         <td>
-                                            <input type="text" class="form-control" name="pantsL-price" >
+                                            <input type="text" class="form-control" name="pantsL_price" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="pantsL-count" >
+                                            <input type="text" class="form-control" name="pantsL_count" >
                                         </td>
                                     </tr>
                                     <tr>
@@ -89,10 +89,10 @@
                                             <label>パッド300</label>
                                         </th>
                                         <td>
-                                            <input type="text" class="form-control" name="pad300-price" >
+                                            <input type="text" class="form-control" name="pad300_price" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="pad300-count" >
+                                            <input type="text" class="form-control" name="pad300_count" >
                                         </td>
                                     </tr>
                                     <tr>
@@ -100,10 +100,10 @@
                                             <label>パッド400</label>
                                         </th>
                                         <td>
-                                            <input type="text" class="form-control" name="pad400-price" >
+                                            <input type="text" class="form-control" name="pad400_price" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="pad400-count" >
+                                            <input type="text" class="form-control" name="pad400_count" >
                                         </td>
                                     </tr>
                                     <tr>
@@ -111,10 +111,10 @@
                                             <label>パッド600</label>
                                         </th>
                                         <td>
-                                            <input type="text" class="form-control" name="pad600-price" >
+                                            <input type="text" class="form-control" name="pad600_price" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="pad600-count" >
+                                            <input type="text" class="form-control" name="pad600_count" >
                                         </td>
                                     </tr>
                                     <tr>
@@ -122,10 +122,10 @@
                                             <label>パッド800</label>
                                         </th>
                                         <td>
-                                            <input type="text" class="form-control" name="pad800-price" >
+                                            <input type="text" class="form-control" name="pad800_price" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="pad800-count" >
+                                            <input type="text" class="form-control" name="pad800_count" >
                                         </td>
                                     </tr>
                                      <tr>
@@ -133,10 +133,10 @@
                                             <label>パッド1000</label>
                                         </th>
                                         <td>
-                                            <input type="text" class="form-control" name="pad1000-price" >
+                                            <input type="text" class="form-control" name="pad1000_price" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="pad1000-count" >
+                                            <input type="text" class="form-control" name="pad1000_count" >
                                         </td>
                                     </tr>
                                      <tr>
@@ -144,16 +144,16 @@
                                             <label>パッド1200</label>
                                         </th>
                                         <td>
-                                            <input type="text" class="form-control" name="pad1200-price" >
+                                            <input type="text" class="form-control" name="pad1200_price" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="pad1200-count" >
+                                            <input type="text" class="form-control" name="pad1200_count" >
                                         </td>
                                     </tr>
                                 </table>
                             </div>
                         <input type="hidden" name="client_id" value="{{ $client -> id }}">
-                        {{ csrf_field() }}
+                        @csrf
                         <input type="submit" class="btn btn-primary" value="送信">
                     </div>
                 </div>

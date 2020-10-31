@@ -21,3 +21,6 @@ Route::post('sales/report/create','SalesController@create');
 Route::get('clients/create','ClientsController@add');
 Route::post('clients/create','ClientsController@create');
 Route::get('clients/list','SalesController@list');
+
+Route::get('result','SalesController@result');
+Route::post('result','SalesController@result');
