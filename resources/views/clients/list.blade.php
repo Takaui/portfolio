@@ -20,8 +20,9 @@
                                         <th width="10%">業態</th>
                                         <th width="15%">施設名</th>
                                         <th width="10%">床数</th>
-                                        <th width="10%"></th>
-                                        <th width="10%"></th>
+                                        <th width="15%"></th>
+                                        <th width="15%"></th>
+                                        <th width="15%"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,6 +37,9 @@
                                             </td>
                                             <td>
                                                 <a href="{{ action('SalesController@result',['id' => $client->id]) }}" role="button" class="btn btn-primary">実績確認</a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ action('SalesController@plan',['id' => $client->id]) }}" role="button" class="btn btn-primary">目標設定</a>
                                             </td>
                                         </tr>
                                     @endforeach

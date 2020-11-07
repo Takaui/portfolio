@@ -12,4 +12,7 @@ class SalesReport extends Model
     'pad400_price','pad400_count','pad600_price','pad600_count','pad800_price','pad800_count',
     'pad1000_price','pad1000_count','pad1200_price','pad1200_count','year','month'];
     
+    public function client(){
+        return $this->belongsTo('App\Client');
+    }
 }

@@ -24,3 +24,10 @@ Route::get('clients/list','SalesController@list');
 
 Route::get('result','SalesController@result');
 Route::post('result','SalesController@result');
+
+Route::get('sales/plan','SalesController@plan');
+Route::post('sales/plan','SalesController@planSave');
+
+Route::get('test',function(){
+   return view('sales.plan'); 
+});
