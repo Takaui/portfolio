@@ -10,7 +10,7 @@
                 <div class= "row">
                     <div class="col-md-8 mx-auto">
                         <h2>{{ $client -> user_name}}</h2>
-                        <h2>月間実績入力</h2>
+                        <h1>月間実績入力</h1>
                         <form action="{{action('SalesController@create')}}" method="post" >
                             <div class="form-group row">
                                 <select name="year">
@@ -33,7 +33,8 @@
                                     <option value="3">3月</option>
                                 </select>
                             </div>
-                            <div class="form-group row">
+                            <div>
+                                <p>紙おむつ使用実績</p>
                                 <table>
                                     <tr>
                                         <th>商品名</th>
@@ -152,6 +153,31 @@
                                     </tr>
                                 </table>
                             </div>
+                        <div class="col-md-12 mx-auto">
+
+                            <div>
+                                <h3>紙おむつ使用人数</h3>
+                                <h4>テープ使用人数</h4>
+                                <table>
+                                    <tr>
+                                        <td class="mx-auto">テープM</td>
+                                        <td><input type="text" class="form-control" name="tapem_user_count"></td>
+                                        <td>テープL</td>
+                                        <td><input type="text" class="form-control" name="tapel_user_count"></td>
+                                    </tr>
+                                </table>
+                                <h4 class="mx-auto">パンツ使用人数</h4>
+                                    <table>
+                                        <tr>
+                                            <td>パンツM</td>
+                                            <td><input type="text" class="form-control" name="pantsm_user_count"></td>
+                                            <td>パンツL</td>
+                                            <td><input type="text" class="form-control" name="pantsl_user_count"></td>
+                                        </tr>
+                                    </table>
+                            </div>
+                        </div>
+                            
                         <input type="hidden" name="client_id" value="{{ $client -> id }}">
                         @csrf
                         <input type="submit" class="btn btn-primary" value="送信">

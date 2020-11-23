@@ -37,6 +37,10 @@ class CreateSalesReportsTable extends Migration
             $table->integer('pad1000_count');
             $table->integer('pad1200_price');
             $table->integer('pad1200_count');
+            $table->integer('tapem_user_count');
+            $table->integer('tapel_user_count');
+            $table->integer('pantsm_user_count');
+            $table->integer('pantsl_user_count');
             $table->integer('year');
             $table->integer('month');
             $table->timestamps();

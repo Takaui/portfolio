@@ -28,6 +28,11 @@ Route::post('result','SalesController@result');
 Route::get('sales/plan','SalesController@plan');
 Route::post('sales/plan','SalesController@planSave');
 
+Route::get('sales/planDelete','SalesController@planDelete');
+Route::post('sales/planDelete','SalesController@planDelete');
+
+Route::get('clientTop','SalesController@clientTop');
+
 Route::get('test',function(){
    return view('sales.plan'); 
 });

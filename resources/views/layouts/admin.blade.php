@@ -21,12 +21,12 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     </head>
     <body>
+        <header>
+            @yield('header')
+        </header>
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
+            <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-color:#6EB5C0">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -34,6 +34,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
+                            <li class="nav-item"><a class="nav-link" href="{{ secure_asset('clients/list')}}">施設一覧</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ secure_asset('clients/create')}}">新規施設登録</a></li>
                         </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">

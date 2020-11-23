@@ -10,5 +10,7 @@ class PantsAutaPlan extends Model
     
     protected $table = 'pants_auta_plans';
     
+    
+    
 }
 

@@ -1,8 +1,8 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #000;
-  color: #fff;
+  background-color: #FFF4E1;
+  color: #2f2f2f;
 }
 
 .navbar-laravel {
@@ -39,3 +39,67 @@ body {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
+.clients-list{
+  margin-top: 20px;
+  padding-top: 30px;
+  border-top: 1px solid #2F496E;
+}
+
+.clients-table th{
+  background-color: #BCBABE;
+  font-size: 15px;
+}
+
+clients-table td{
+  font-size: 10px;
+}
+
+.clients-table td,.clients-table th{
+  padding: 8px;
+  border: 1px solid #2F496E;
+  text-align: center;
+}
+
+.client-top{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-bottom: 5px double #6EB5C0;
+  border-top: 5px double #6EB5C0;
+  font-size: 20px;
+}
+
+.plan-user{
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  border-left: 5px solid #8593AE;
+}
+
+h1{
+  padding-top: 10px;
+  padding-bottom: 8px;
+  font-size: 18px;
+  border-bottom: 3px dotted #6EB5C0;
+}
+
+h2{
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  border-left: 5px solid #BCBABE;
+  
+}
+
+h3{
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+
+table{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

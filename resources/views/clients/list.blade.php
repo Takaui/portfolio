@@ -7,40 +7,40 @@
         {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
         @section('content')
     <div class= "container">
-                <div class= "row">
-                    <h2>施設一覧 </h2>        
+            <div class="col-mod-8">
+                <form action="{{ action('SalesController@list') }}" method="get">
+                <div class="form-group row ">
+                    <div class="col-md-4 ml-md-auto">
+                        <input type="text" class="form-control" name="user_name" value="" placeholder="施設検索：施設名を入力">
+                    </div>
+                    <div class="col-md-2">
+                        {{ csrf_field() }}
+                        <input type="submit" class="btn btn-primary" value="検索">
+                    </div>
                 </div>
+            </div>
                 <div class="row">
-                    <div class="list-news col-md-12 mx-auto">
+                    <div class="list-news col-md-10 mx-auto">
+                         <h1>施設一覧 </h1>        
                         <div class="row">
-                            <table class="table table-dark">
+                            <table class="clients-table col-md-10 mx-auto table-hover">
                                 <thead>
                                     <tr>
-                                        <th width="10%">ID</th>
-                                        <th width="10%">業態</th>
-                                        <th width="15%">施設名</th>
-                                        <th width="10%">床数</th>
-                                        <th width="15%"></th>
-                                        <th width="15%"></th>
-                                        <th width="15%"></th>
+                                        <td  width="15%"></td>
+                                        <td  width="30%">施設名</td>
+                                        <td  width="20%">業態</td>
+                                        <td  width="20%">床数</td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($clients as $client)
                                         <tr>
-                                            <td>{{ $client->id }}</td>
-                                            <td>{{ $client->facility_type}}</td>
+                                            <td>
+                                                <a href="{{ action('SalesController@clientTop',['id' => $client->id]) }}" role="button" class="btn btn-primary">選択</a>
+                                            </td>
                                             <td>{{ $client->user_name }}</td>
+                                            <td>{{ $client->facility_type}}</td>
                                             <td>{{ $client->number_of_bed }}</td>
-                                            <td>
-                                                <a href="{{ action('SalesController@add',['id' => $client->id])}}" role="button" class="btn btn-primary">実績入力</a>
-                                            </td>
-                                            <td>
-                                                <a href="{{ action('SalesController@result',['id' => $client->id]) }}" role="button" class="btn btn-primary">実績確認</a>
-                                            </td>
-                                            <td>
-                                                <a href="{{ action('SalesController@plan',['id' => $client->id]) }}" role="button" class="btn btn-primary">目標設定</a>
-                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
