@@ -8,8 +8,11 @@
         @section('content')
             <div class= "container">
                 <div class= "row">
+                    <div class="col-md-8 mx-auto text-center">
+                        <h3　class="client-top">納品先名　：　{{ $client ->user_name }} ({{$client -> number_of_bed }}床)</h3>
+                    </div>
+                </div>
                     <div class="col-md-8 mx-auto">
-                        <h2>{{ $client -> user_name}}</h2>
                         <h1>月間実績入力</h1>
                         <form action="{{action('SalesController@create')}}" method="post" >
                             <div class="form-group row">
@@ -34,7 +37,7 @@
                                 </select>
                             </div>
                             <div>
-                                <p>紙おむつ使用実績</p>
+                                <h2>紙おむつ使用実績</h2>
                                 <table>
                                     <tr>
                                         <th>商品名</th>
@@ -42,9 +45,9 @@
                                         <th>数量（枚）</th>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             <label>テープM</label>
-                                        </th>
+                                        </td>
                                         <td>
                                             <input type="text" class="form-control" name="tapeM_price" >
                                         </td>
@@ -53,9 +56,9 @@
                                         </td>
                                     </tr>
                                      <tr>
-                                        <th>
+                                        <td>
                                             <label>テープL</label>
-                                        </th>
+                                        </td>
                                         <td>
                                             <input type="text" class="form-control" name="tapeL_price" >
                                         </td>
@@ -64,9 +67,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             <label>パンツM</label>
-                                        </th>
+                                        </td>
                                         <td>
                                             <input type="text" class="form-control" name="pantsM_price" >
                                         </td>
@@ -75,9 +78,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             <label>パンツL</label>
-                                        </th>
+                                        </td>
                                         <td>
                                             <input type="text" class="form-control" name="pantsL_price" >
                                         </td>
@@ -86,9 +89,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             <label>パッド300</label>
-                                        </th>
+                                        </td>
                                         <td>
                                             <input type="text" class="form-control" name="pad300_price" >
                                         </td>
@@ -97,9 +100,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             <label>パッド400</label>
-                                        </th>
+                                        </td>
                                         <td>
                                             <input type="text" class="form-control" name="pad400_price" >
                                         </td>
@@ -108,9 +111,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             <label>パッド600</label>
-                                        </th>
+                                        </td>
                                         <td>
                                             <input type="text" class="form-control" name="pad600_price" >
                                         </td>
@@ -119,9 +122,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             <label>パッド800</label>
-                                        </th>
+                                        </td>
                                         <td>
                                             <input type="text" class="form-control" name="pad800_price" >
                                         </td>
@@ -130,9 +133,9 @@
                                         </td>
                                     </tr>
                                      <tr>
-                                        <th>
+                                        <td>
                                             <label>パッド1000</label>
-                                        </th>
+                                        </td>
                                         <td>
                                             <input type="text" class="form-control" name="pad1000_price" >
                                         </td>
@@ -141,9 +144,9 @@
                                         </td>
                                     </tr>
                                      <tr>
-                                        <th>
+                                        <td>
                                             <label>パッド1200</label>
-                                        </th>
+                                        </td>
                                         <td>
                                             <input type="text" class="form-control" name="pad1200_price" >
                                         </td>
@@ -153,11 +156,10 @@
                                     </tr>
                                 </table>
                             </div>
-                        <div class="col-md-12 mx-auto">
-
+                        <div class="col-md-8 mx-auto">
                             <div>
-                                <h3>紙おむつ使用人数</h3>
-                                <h4>テープ使用人数</h4>
+                                <h2>紙おむつ使用人数</h2>
+                                <p>テープ使用人数</p>
                                 <table>
                                     <tr>
                                         <td class="mx-auto">テープM</td>
@@ -166,18 +168,17 @@
                                         <td><input type="text" class="form-control" name="tapel_user_count"></td>
                                     </tr>
                                 </table>
-                                <h4 class="mx-auto">パンツ使用人数</h4>
-                                    <table>
-                                        <tr>
-                                            <td>パンツM</td>
-                                            <td><input type="text" class="form-control" name="pantsm_user_count"></td>
-                                            <td>パンツL</td>
-                                            <td><input type="text" class="form-control" name="pantsl_user_count"></td>
-                                        </tr>
-                                    </table>
+                                <h2>パンツ使用人数</h2>
+                                <table>
+                                    <tr>
+                                        <td>パンツM</td>
+                                        <td><input type="text" class="form-control" name="pantsm_user_count"></td>
+                                        <td>パンツL</td>
+                                        <td><input type="text" class="form-control" name="pantsl_user_count"></td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
-                            
                         <input type="hidden" name="client_id" value="{{ $client -> id }}">
                         @csrf
                         <input type="submit" class="btn btn-primary" value="送信">

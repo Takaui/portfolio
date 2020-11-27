@@ -10,32 +10,32 @@
                 <div class= "row">
                     <div class="col-md-8 mx-auto">
                         <h1>施設登録</h1>
-                        <form action="{{ action('ClientsController@create') }}" method="post" >
+                        <form action="{{ action('ClientsController@update',['id' => $client -> id]) }}" method="post" >
                              @csrf
                             <div class="form-group row">
                                 <label class="col-md-2">業態</label>
                                     <div class="col-md-8">
                                         <select name="facility_type">
-                                            <option value="病院">病院</option>
-                                            <option value="特養">特養</option>
-                                            <option value="老健">老健</option>
+                                            <option value="病院" @if($client -> facility_type ==="病院") selected @endif>病院</option>
+                                            <option value="特養" @if($client -> facility_type ==="特養") selected @endif>特養</option>
+                                            <option value="老健" @if($client -> facility_type ==="老健") selected @endif>老健</option>
                                         </select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-2">施設名</label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" name="user_name" >
+                                        <input type="text" class="form-control" name="user_name" value="{{ $client -> user_name}}">
                                     </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-2">床数</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" name="number_of_bed" >
+                                    <input type="text" class="form-control" name="number_of_bed" value="{{ $client -> number_of_bed }}">
                                 </div>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <input type="submit" class="btn btn-primary" value="作成">
+                                <input type="submit" class="btn btn-primary" value="更新">
                             </div>
                         </form>
                     </div>

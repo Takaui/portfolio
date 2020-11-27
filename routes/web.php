@@ -22,6 +22,9 @@ Route::get('clients/create','ClientsController@add');
 Route::post('clients/create','ClientsController@create');
 Route::get('clients/list','SalesController@list');
 
+Route::get('clients/create2','ClientsController@add2');
+Route::post('clients/create2','ClientsController@update');
+
 Route::get('result','SalesController@result');
 Route::post('result','SalesController@result');
 
@@ -33,6 +36,3 @@ Route::post('sales/planDelete','SalesController@planDelete');
 
 Route::get('clientTop','SalesController@clientTop');
 
-Route::get('test',function(){
-   return view('sales.plan'); 
-});

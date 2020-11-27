@@ -13,7 +13,7 @@
                         </br>
                         <form action="{{action('SalesController@planSave')}}" method="post" >
                         <div>
-                            <p class="plan-user">テープタイプ使用者</p>
+                            <h2>テープタイプ使用者</h2>
                             <div class="float-left">
                                 <p>アウター</p>
                                 <table>
@@ -22,45 +22,44 @@
                                         <th>交換時間</th>
                                         <th>商品名</th>
                                     </tr>
-                                    @if(!empty($TapeAutaPlans))
-                                    aaaaaaaaaaaaaaaaaaaaaaaaaa
+                                    @if(isset($TapeAutaPlans) && count($TapeAutaPlans) >= 1)
                                         @foreach($TapeAutaPlans as $TapeAutaPlan)
                                                 <tr>
-                                                    <th>{{ $loop ->iteration }}回目</th>
-                                                    <th>
+                                                    <td>{{ $loop ->iteration }}回目</td>
+                                                    <td>
                                                         <select name="t_tape_exchange_time{{$loop ->iteration}}">
                                                             <option value=""></option>
                                                             @foreach($times as $time)
                                                             <option value="{{ $time }}" @if($TapeAutaPlan->t_tape_exchange_time===$time) selected @endif>{{$time}}時</option>
                                                             @endforeach
                                                         </select>
-                                                    </th>
-                                                    <th>
+                                                    </td>
+                                                    <td>
                                                         <select name="t_tape_item{{ $loop->iteration }}">
                                                             <option value=""></option>
-                                                            <option value="tape" @if($TapeAutaPlan->t_tape_item==="tape") selected @endif>テープ</option>
+                                                            <option value="テープ" @if($TapeAutaPlan->t_tape_item==="テープ") selected @endif>テープ</option>
                                                         </select>
-                                                    </th>
+                                                    </td>
                                                 </tr>
                                         @endforeach
                                     @else 
                                         @for ($i = 1; $i <= 5; $i++)
                                             <tr>
-                                                <th>{{ $i}}回目</th>
-                                                <th>
+                                                <td>{{ $i}}回目</td>
+                                                <td>
                                                     <select name="t_tape_exchange_time{{ $i}}">
                                                         <option value=""></option>
                                                         @foreach($times as $time)
                                                         <option value="{{ $time}}">{{$time}}時</option>
                                                         @endforeach
                                                     </select>
-                                                </th>
-                                                <th>
+                                                </td>
+                                                <td>
                                                     <select name="t_tape_item{{ $i}}">
                                                         <option value=""></option>
-                                                        <option value="tape" >テープ</option>
+                                                        <option value="テープ" >テープ</option>
                                                     </select>
-                                                </th>
+                                                </td>
                                             </tr>
                                         @endfor
                                     @endif
@@ -75,63 +74,61 @@
                                         <th>交換時間</th>
                                         <th>商品名</th>
                                     </tr>
-                                        @if(isset($TapeInnerPlans))
+                                        @if(isset($TapeInnerPlans) && count($TapeInnerPlans) >=1)
                                             @foreach($TapeInnerPlans as $TapeInnerPlan)
                                                     <tr>
-                                                        <th>{{ $loop ->iteration }}回目</th>
-                                                        <th>
+                                                        <td>{{ $loop ->iteration }}回目</td>
+                                                        <td>
                                                             <select name="t_pad_exchange_time{{$loop ->iteration}}">
                                                                 <option value=""></option>
                                                                 @foreach($times as $time)
                                                                 <option value="{{ $time }}" @if($TapeInnerPlan->t_pad_exchange_time===$time) selected @endif>{{$time}}時</option>
                                                                 @endforeach
                                                             </select>
-                                                        </th>
-                                                        <th>
+                                                        </td>
+                                                        <td>
                                                             <select name="t_pad_item{{ $loop->iteration }}">
                                                                 <option value=""></option>
-                                                                <option value="pad300" @if($TapeInnerPlan->t_pad_item==="pad300") selected @endif>パッド300</option>
-                                                                <option value="pad400" @if($TapeInnerPlan->t_pad_item==="pad400") selected @endif>パッド400</option>
-                                                                <option value="pad600" @if($TapeInnerPlan->t_pad_item==="pad600") selected @endif>パッド600</option>
-                                                                <option value="pad800" @if($TapeInnerPlan->t_pad_item==="pad800") selected @endif>パッド800</option>
-                                                                <option value="pad1000" @if($TapeInnerPlan->t_pad_item==="pad1000") selected @endif>パッド1000</option>
-                                                                <option value="pad1200" @if($TapeInnerPlan->t_pad_item==="pad1200") selected @endif>パッド1200</option>
+                                                                <option value="パッド300" @if($TapeInnerPlan->t_pad_item==="パッド300") selected @endif>パッド300</option>
+                                                                <option value="パッド400" @if($TapeInnerPlan->t_pad_item==="パッド400") selected @endif>パッド400</option>
+                                                                <option value="パッド600" @if($TapeInnerPlan->t_pad_item==="パッド600") selected @endif>パッド600</option>
+                                                                <option value="パッド800" @if($TapeInnerPlan->t_pad_item==="パッド800") selected @endif>パッド800</option>
+                                                                <option value="パッド1000" @if($TapeInnerPlan->t_pad_item==="パッド1000") selected @endif>パッド1000</option>
+                                                                <option value="パッド1200" @if($TapeInnerPlan->t_pad_item==="パッド1200") selected @endif>パッド1200</option>
                                                             </select>
-                                                        </th>
+                                                        </td>
                                                     </tr>
-                                                    <tr>
-                                                </tr>
                                             @endforeach
                                         @else
                                             @for ($i = 1; $i <= 5; $i++)
                                                 <tr>
-                                                    <th>{{ $i}}回目</th>
-                                                    <th>
+                                                    <td>{{ $i}}回目</td>
+                                                    <td>
                                                         <select name="t_pad_exchange_time{{ $i}}">
                                                             <option value=""></option>
                                                             @foreach($times as $time)
                                                             <option value="{{ $time}}">{{$time}}時</option>
                                                             @endforeach
                                                         </select>
-                                                    </th>
-                                                    <th>
+                                                    </td>
+                                                    <td>
                                                         <select name="t_pad_item{{ $i}}">
                                                             <option value=""></option>
-                                                            <option value="pad300">パッド300</option>
-                                                            <option value="pad400">パッド400</option>
-                                                            <option value="pad600">パッド600</option>
-                                                            <option value="pad800">パッド800</option>
-                                                            <option value="pad1000">パッド1000</option>
-                                                            <option value="pad1200">パッド1200</option>
+                                                            <option value="パッド300">パッド300</option>
+                                                            <option value="パッド400">パッド400</option>
+                                                            <option value="パッド600">パッド600</option>
+                                                            <option value="パッド800">パッド800</option>
+                                                            <option value="パッド1000">パッド1000</option>
+                                                            <option value="パッド1200">パッド1200</option>
                                                         </select>
-                                                    </th>
+                                                    </td>
                                                 </tr>
                                             @endfor
                                         @endif
                                     </table>
                                 </div>
                             <div style="clear:both"></div>
-                            <p class="plan-user ">パンツタイプ使用者</p>
+                            <h2>パンツタイプ使用者</h2>
                             <div class="float-left">
                                 <p>アウター</p>
                                 <table>
@@ -140,24 +137,24 @@
                                         <th>交換時間</th>
                                         <th>商品名</th>
                                     </tr>
-                                    @if(isset($PantsAutaPlans))
+                                    @if(isset($PantsAutaPlans) &&count($PantsAutaPlans) >= 1 )
                                         @foreach($PantsAutaPlans as $PantsAutaPlan)
                                                 <tr>
-                                                    <th>{{ $loop ->iteration }}回目</th>
-                                                    <th>
+                                                    <td>{{ $loop ->iteration }}回目</td>
+                                                    <td>
                                                         <select name="p_pants_exchange_time{{$loop ->iteration}}">
                                                             <option value=""></option>
                                                             @foreach($times as $time)
                                                             <option value="{{ $time }}" @if($PantsAutaPlan->p_pants_exchange_time===$time) selected @endif>{{$time}}時</option>
                                                             @endforeach
                                                         </select>
-                                                    </th>
-                                                    <th>
+                                                    </td>
+                                                    <td>
                                                         <select name="p_pants_item{{ $loop->iteration }}">
                                                             <option value=""></option>
-                                                            <option value="pants" @if($PantsAutaPlan->p_pants_item==="pants") selected @endif>パンツ</option>
+                                                            <option value="パンツ" @if($PantsAutaPlan->p_pants_item==="パンツ") selected @endif>パンツ</option>
                                                         </select>
-                                                    </th>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                             </tr>
@@ -165,21 +162,21 @@
                                     @else
                                         @for ($i = 1; $i <= 5; $i++)
                                             <tr>
-                                                <th>{{ $i}}回目</th>
-                                                <th>
+                                                <td>{{ $i}}回目</td>
+                                                <td>
                                                     <select name="p_pants_exchange_time{{ $i}}">
                                                         <option value=""></option>
                                                         @foreach($times as $time)
                                                         <option value="{{ $time}}">{{$time}}時</option>
                                                         @endforeach
                                                     </select>
-                                                </th>
-                                                <th>
+                                                </td>
+                                                <td>
                                                     <select name="p_pants_item{{ $i}}">
                                                         <option value=""></option>
-                                                        <option value="pants" >パンツ</option>
+                                                        <option value="パンツ" >パンツ</option>
                                                     </select>
-                                                </th>
+                                                </td>
                                             </tr>
                                         @endfor
                                     @endif
@@ -193,29 +190,29 @@
                                         <th>交換時間</th>
                                         <th>商品名</th>
                                     </tr>
-                                    @if(isset($PantsInnerPlans))
+                                    @if(isset($PantsInnerPlans) && count($PantsInnerPlans) >= 1)
                                             @foreach($PantsInnerPlans as $PantsInnerPlan)
                                                     <tr>
-                                                        <th>{{ $loop ->iteration }}回目</th>
-                                                        <th>
+                                                        <td>{{ $loop ->iteration }}回目</td>
+                                                        <td>
                                                             <select name="p_pad_exchange_time{{$loop ->iteration}}">
                                                                 <option value=""></option>
                                                                 @foreach($times as $time)
                                                                 <option value="{{ $time }}" @if($PantsInnerPlan->p_pad_exchange_time===$time) selected @endif>{{$time}}時</option>
                                                                 @endforeach
                                                             </select>
-                                                        </th>
-                                                        <th>
+                                                        </td>
+                                                        <td>
                                                             <select name="p_pad_item{{ $loop->iteration }}">
                                                                 <option value=""></option>
-                                                                <option value="pad300" @if($PantsInnerPlan->p_pad_item==="pad300") selected @endif>パッド300</option>
-                                                                <option value="pad400" @if($PantsInnerPlan->p_pad_item==="pad400") selected @endif>パッド400</option>
-                                                                <option value="pad600" @if($PantsInnerPlan->p_pad_item==="pad600") selected @endif>パッド600</option>
-                                                                <option value="pad800" @if($PantsInnerPlan->p_pad_item==="pad800") selected @endif>パッド800</option>
-                                                                <option value="pad1000" @if($PantsInnerPlan->p_pad_item==="pad1000") selected @endif>パッド1000</option>
-                                                                <option value="pad1200" @if($PantsInnerPlan->p_pad_item==="pad1200") selected @endif>パッド1200</option>
+                                                                <option value="パッド300" @if($PantsInnerPlan->p_pad_item==="パッド300") selected @endif>パッド300</option>
+                                                                <option value="パッド400" @if($PantsInnerPlan->p_pad_item==="パッド400") selected @endif>パッド400</option>
+                                                                <option value="パッド600" @if($PantsInnerPlan->p_pad_item==="パッド600") selected @endif>パッド600</option>
+                                                                <option value="パッド800" @if($PantsInnerPlan->p_pad_item==="パッド800") selected @endif>パッド800</option>
+                                                                <option value="パッド1000" @if($PantsInnerPlan->p_pad_item==="パッド1000") selected @endif>パッド1000</option>
+                                                                <option value="パッド1200" @if($PantsInnerPlan->p_pad_item==="パッド1200") selected @endif>パッド1200</option>
                                                             </select>
-                                                        </th>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                 </tr>
@@ -223,26 +220,26 @@
                                         @else
                                             @for ($i = 1; $i <= 5; $i++)
                                                 <tr>
-                                                    <th>{{ $i}}回目</th>
-                                                    <th>
+                                                    <td>{{ $i}}回目</td>
+                                                    <td>
                                                         <select name="p_pad_exchange_time{{ $i}}">
                                                             <option value=""></option>
                                                             @foreach($times as $time)
                                                             <option value="{{ $time}}">{{$time}}時</option>
                                                             @endforeach
                                                         </select>
-                                                    </th>
-                                                    <th>
+                                                    </td>
+                                                    <td>
                                                         <select name="p_pad_item{{ $i}}">
                                                             <option value=""></option>
-                                                            <option value="pad300">パッド300</option>
-                                                            <option value="pad400">パッド400</option>
-                                                            <option value="pad600">パッド600</option>
-                                                            <option value="pad800">パッド800</option>
-                                                            <option value="pad1000">パッド1000</option>
-                                                            <option value="pad1200">パッド1200</option>
+                                                            <option value="パッド300">パッド300</option>
+                                                            <option value="パッド400">パッド400</option>
+                                                            <option value="パッド600">パッド600</option>
+                                                            <option value="パッド800">パッド800</option>
+                                                            <option value="パッド1000">パッド1000</option>
+                                                            <option value="パッド1200">パッド1200</option>
                                                         </select>
-                                                    </th>
+                                                    </td>
                                                 </tr>
                                             @endfor
                                         @endif

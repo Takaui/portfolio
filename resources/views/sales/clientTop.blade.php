@@ -2,7 +2,7 @@
 @extends('layouts.admin')
         
         {{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-        @section('title','月間実績入力')
+        @section('title','施設TOP画面')
         
         {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
         @section('content')
@@ -17,7 +17,7 @@
                                 <a href="{{ action('SalesController@result',['id'=> $client->id ]) }}" role="button" class="btn btn-primary">実績確認</a>
                                 <a href="{{ action('SalesController@plan',['id'=> $client->id ]) }}" role="button" class="btn btn-primary">目標設定</a>
                                 <a href="{{ action('SalesController@create',['id'=> $client->id ])}}" role="button" class="btn btn-primary">実績入力</a>
-                                <a href="{{ action('ClientsController@add') }}" role="button" class="btn btn-primary">施設情報変更</a>
+                                <a href="{{ action('ClientsController@add2',['id' => $client ->id ]) }}" role="button" class="btn btn-primary">施設情報変更</a>
                             </div>
                         </div>
                     </div>
