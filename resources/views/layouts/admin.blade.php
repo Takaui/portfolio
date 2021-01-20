@@ -34,24 +34,26 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item"><a class="nav-link" href="{{ secure_asset('clients/list')}}">施設一覧</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ secure_asset('clients/create')}}">新規施設登録</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ secure_asset('admin/clients/list')}}">施設一覧</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ secure_asset('admin/clients/create')}}">新規施設登録</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ secure_asset('admin/clients/usersList')}}">利用者情報（お客様）</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ secure_asset('admin/sales/adminsList')}}">利用者情報（営業）</a></li>
                         </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                         {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login') }}</a></li>
                             {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else
                             <li class="nav-item dropdown"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-wxpanded="false" v-pre>{{ Auth::user()->name}} <span class="caret"></span>
                             </a>
                             
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item" href="{{ route('admin.logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
                             </div>

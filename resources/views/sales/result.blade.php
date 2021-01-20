@@ -14,9 +14,9 @@
                         </div>
                         <div class = "row">
                             <div class="col-md-8 mx-auto">
-                                <a href="{{ action('SalesController@plan',['id'=> $client->id ]) }}" role="button" class="btn btn-primary">目標設定</a>
-                                <a href="{{ action('SalesController@create',['id'=> $client->id ])}}" role="button" class="btn btn-primary">実績入力</a>
-                                <a href="{{ action('ClientsController@add2',['id' => $client ->id ]) }}" role="button" class="btn btn-primary">施設情報変更</a>
+                                <a href="{{ action('Admin\SalesController@plan',['id'=> $client->id ]) }}" role="button" class="btn btn-primary">目標設定</a>
+                                <a href="{{ action('Admin\SalesController@create',['id'=> $client->id ])}}" role="button" class="btn btn-primary">実績入力</a>
+                                <a href="{{ action('Admin\ClientsController@add2',['id' => $client ->id ]) }}" role="button" class="btn btn-primary">施設情報変更</a>
                             </div>
                         </div>
                         <div class="row">
@@ -120,7 +120,7 @@
                             <div class="col-md-8 mx-auto">
                                 <h1>実績</h1>
                                 <div class="d-flex justify-content-end">
-                                <form action="{{action('SalesController@result')}}" method="post" >
+                                <form action="{{action('Admin\SalesController@result')}}" method="post" >
                                     <div class="form-group row">
                                         <p>実績年月選択</p>
                                         <select name="year">
@@ -170,145 +170,6 @@
                                 </div>
                                 <div style="clear:both"></div>
                                 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8 mx-auto">
-                                <h1>年間実績</h1>
-                                <p>使用枚数</p>
-                                	<div style="width:75%;">
-		                                <canvas id="chart5"></canvas>
-	                                </div>
-                            	<br>
-                            	<p>販売金額</p>
-                                	<div style="width:75%;">
-		                                <canvas id="chart6"></canvas>
-	                                </div>
-                            	<br>
-	                            <script>
-                                    window.onload = function(){
-                                        var ctx1 = document.getElementById('chart1').getContext('2d');
-                                        var ctx2 = document.getElementById('chart2').getContext('2d');
-                                        var ctx3 = document.getElementById('chart3').getContext('2d');
-                                        var ctx4 = document.getElementById('chart4').getContext('2d');
-                                        var ctx5 = document.getElementById('chart5').getContext('2d');
-                                        var ctx6 = document.getElementById('chart6').getContext('2d');
-                                    
-                                        var chart1 = new Chart(ctx1, {
-                                        	type: 'pie',
-                                        	data: {
-                                            labels: ['テープ', 'パンツ', 'パッド'],
-                                            datasets: [{
-                                            label: '品群別（枚数）',
-                                            data: [ {{$tape_group_count}},{{$pants_group_count}},{{$pad_group_count}}],
-                                            backgroundColor:    ['#a0c238','#f2cf01','#65ace4'],
-                                            borderColor: ['#a0c238','#f2cf01','#65ace4']
-                                            }]
-                                        },
-                                        options: {}
-                                        });
-                                        
-                                        
-                                        var chart2 = new Chart(ctx2, {
-                                        	type: 'pie',
-                                        	data: {
-                                        	labels: ['パッド300', 'パッド400', 'パッド600','パッド800','パッド1000','パッド1200'],
-                                        	datasets: [{
-                                        	label: 'パッド内訳（枚数）',
-                                        	data: [ {{$pad300_count}},{{$pad400_count}},{{$pad600_count}},{{$pad800_count}},{{$pad1000_count}},{{$pad1200_count}}],
-                                        	backgroundColor: ['#0074bf','#56a764','#d06d8c','#9460a0','#fff001','#65ace4'],
-                                        	borderColor: ['#0074bf','#56a764','#d06d8c','#9460a0','#fff001','#65ace4']
-                                        	    }]
-                                        	},
-                                        options: {}
-                                        	});
-                                        
-                                        var chart3 = new Chart(ctx3, {
-                                        	type: 'pie',
-                                        	data: {
-                                            labels: ['テープ', 'パンツ', 'パッド'],
-                                            datasets: [{
-                                            label: '品群別（金額）',
-                                            data: [ {{$tape_group_price}},{{$pants_group_price}},{{$pad_group_price}}],
-                                            backgroundColor: ['#a0c238','#f2cf01','#65ace4'],
-                                            borderColor: ['#a0c238','#f2cf01','#65ace4']
-                                            }]
-                                        },
-                                        options: {}
-                                        });
-                                        
-                                        var chart4 = new Chart(ctx4, {
-                                        	type: 'pie',
-                                        	data: {
-                                        	labels: ['パッド300', 'パッド400', 'パッド600','パッド800','パッド1000','パッド1200'],
-                                        	datasets: [{
-                                        	label: 'パッド内訳（金額）',
-                                        	data: [ {{$pad300_price}},{{$pad400_price}},{{$pad600_price}},{{$pad800_price}},{{$pad1000_price}},{{$pad1200_price}}],
-                                        	backgroundColor: ['#0074bf','#56a764','#d06d8c','#9460a0','#fff001','#65ace4'],
-                                        	borderColor: ['#0074bf','#56a764','#d06d8c','#9460a0','#fff001','#65ace4']
-                                        	    }]
-                                        	},
-                                        options: {}
-                                        	});
-                                        	
-                                        var chart5 = new Chart(ctx5,{
-                                    			type: 'line',
-                                    			data: {
-                                    				labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月','12月'],
-                                    				datasets: [{
-                                    					label: '{{ $salesReport ->year}}年',
-                                    					
-                                    					borderColor: '#65ace4',
-                                    					data: [
-                                    						{{$thisYearJanuaryCount}},{{$thisYearFebruaryCount}},{{$thisYearMarchCount}},{{$thisYearAprilCount}},
-                                    						{{$thisYearMayCount}},{{$thisYearJuneCount}},{{$thisYearJulyCount}},{{$thisYearAugustCount}},
-                                    						{{$thisYearSeptemberCount}},{{$thisYearOctoberCount}},{{$thisYearNovemberCount}},{{$thisYearDecemberCount}}
-                    
-                                    					],
-                                    				}, {
-                                    					label: '{{ $lastYear }}年',
-                                    					
-                                    					borderColor: '#f2cf01',
-                                    					data: [
-                                    						{{$lastYearJanuaryCount}},{{$lastYearFebruaryCount}},{{$lastYearMarchCount}},{{$lastYearAprilCount}},
-                                    						{{$lastYearMayCount}},{{$lastYearJuneCount}},{{$lastYearJulyCount}},{{$lastYearAugustCount}},
-                                    						{{$lastYearSeptemberCount}},{{$lastYearOctoberCount}},{{$lastYearNovemberCount}},{{$lastYearDecemberCount}}
-                                    					],
-                                    				}]
-                                    			},
-                                    			options: {}
-                                    		});
-                                    		
-                                    		var chart6 = new Chart(ctx6,{
-                                    			type: 'line',
-                                    			data: {
-                                    				labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月','12月'],
-                                    				datasets: [{
-                                    					label: '{{ $salesReport ->year}}年',
-                                    					
-                                    					borderColor: '#65ace4',
-                                    					data: [
-                                    						{{$thisYearJanuaryPrice}},{{$thisYearFebruaryPrice}},{{$thisYearMarchPrice}},{{$thisYearAprilPrice}},
-                                    						{{$thisYearMayPrice}},{{$thisYearJunePrice}},{{$thisYearJulyPrice}},{{$thisYearAugustPrice}},
-                                    						{{$thisYearSeptemberPrice}},{{$thisYearOctoberPrice}},{{$thisYearNovemberPrice}},{{$thisYearDecemberPrice}}
-                    
-                                    					],
-                                    				}, {
-                                    					label: '{{ $lastYear }}年',
-                                    					
-                                    					borderColor: '#f2cf01',
-                                    					data: [
-                                    						{{$lastYearJanuaryPrice}},{{$lastYearFebruaryPrice}},{{$lastYearMarchPrice}},{{$lastYearAprilPrice}},
-                                    						{{$lastYearMayPrice}},{{$lastYearJunePrice}},{{$lastYearJulyPrice}},{{$lastYearAugustPrice}},
-                                    						{{$lastYearSeptemberPrice}},{{$lastYearOctoberPrice}},{{$lastYearNovemberPrice}},{{$lastYearDecemberPrice}}
-                                    					],
-                                    				}]
-                                    			},
-                                    			options: {}
-                                    		});
-                                    }
-                                
-                                </script>
                             </div>
                         </div>
                         <div class="row">
@@ -383,6 +244,151 @@
                                 @else
                                     <p>実績登録がありません。</p>
                                 @endif
+                            </div>
+                        </div>
+                            <div class="row">
+                            <div class="col-md-8 mx-auto">
+                                <h1>年間実績</h1>
+                                @if(isset($thisYearCount))
+                                <p>使用枚数</p>
+                                	<div style="width:75%;">
+		                                <canvas id="chart5"></canvas>
+	                                </div>
+                            	<br>
+                            	<p>販売金額</p>
+                                	<div style="width:75%;">
+		                                <canvas id="chart6"></canvas>
+	                                </div>
+                            	<br>
+                            	@else
+                            	    <p>実績登録がありません。</p>
+                            	@endif
+	                            <script>
+                                    window.onload = function(){
+                                        var ctx1 = document.getElementById('chart1').getContext('2d');
+                                        var ctx2 = document.getElementById('chart2').getContext('2d');
+                                        var ctx3 = document.getElementById('chart3').getContext('2d');
+                                        var ctx4 = document.getElementById('chart4').getContext('2d');
+                                        var ctx5 = document.getElementById('chart5').getContext('2d');
+                                        var ctx6 = document.getElementById('chart6').getContext('2d');
+                                        
+                                    @if( isset($salesReport) )
+                                        var chart1 = new Chart(ctx1, {
+                                        	type: 'pie',
+                                        	data: {
+                                            labels: ['テープ', 'パンツ', 'パッド'],
+                                            datasets: [{
+                                            label: '品群別（枚数）',
+                                            data: [ {{$tape_group_count}},{{$pants_group_count}},{{$pad_group_count}}],
+                                            backgroundColor:    ['#a0c238','#f2cf01','#65ace4'],
+                                            borderColor: ['#a0c238','#f2cf01','#65ace4']
+                                            }]
+                                        },
+                                        options: {}
+                                        });
+                                     
+                                        var chart2 = new Chart(ctx2, {
+                                        	type: 'pie',
+                                        	data: {
+                                        	labels: ['パッド300', 'パッド400', 'パッド600','パッド800','パッド1000','パッド1200'],
+                                        	datasets: [{
+                                        	label: 'パッド内訳（枚数）',
+                                        	data: [ {{$pad300_count}},{{$pad400_count}},{{$pad600_count}},{{$pad800_count}},{{$pad1000_count}},{{$pad1200_count}}],
+                                        	backgroundColor: ['#0074bf','#56a764','#d06d8c','#9460a0','#fff001','#65ace4'],
+                                        	borderColor: ['#0074bf','#56a764','#d06d8c','#9460a0','#fff001','#65ace4']
+                                        	    }]
+                                        	},
+                                        options: {}
+                                        	});
+                                        
+                                        var chart3 = new Chart(ctx3, {
+                                        	type: 'pie',
+                                        	data: {
+                                            labels: ['テープ', 'パンツ', 'パッド'],
+                                            datasets: [{
+                                            label: '品群別（金額）',
+                                            data: [ {{$tape_group_price}},{{$pants_group_price}},{{$pad_group_price}}],
+                                            backgroundColor: ['#a0c238','#f2cf01','#65ace4'],
+                                            borderColor: ['#a0c238','#f2cf01','#65ace4']
+                                            }]
+                                        },
+                                        options: {}
+                                        });
+                                        
+                                        var chart4 = new Chart(ctx4, {
+                                        	type: 'pie',
+                                        	data: {
+                                        	labels: ['パッド300', 'パッド400', 'パッド600','パッド800','パッド1000','パッド1200'],
+                                        	datasets: [{
+                                        	label: 'パッド内訳（金額）',
+                                        	data: [ {{$pad300_price}},{{$pad400_price}},{{$pad600_price}},{{$pad800_price}},{{$pad1000_price}},{{$pad1200_price}}],
+                                        	backgroundColor: ['#0074bf','#56a764','#d06d8c','#9460a0','#fff001','#65ace4'],
+                                        	borderColor: ['#0074bf','#56a764','#d06d8c','#9460a0','#fff001','#65ace4']
+                                        	    }]
+                                        	},
+                                        options: {}
+                                        	});
+                                     @endif       
+                                      
+                                     @if(isset($thiYearCount)) 
+                                        var chart5 = new Chart(ctx5,{
+                                    			type: 'line',
+                                    			data: {
+                                    				labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月','12月'],
+                                    				datasets: [{
+                                    					label: '{{ $thisYear}}年',
+                                    					
+                                    					borderColor: '#65ace4',
+                                    					data: [
+                                    					    @for($i= 0 ;$i<= 11 ; $i++ )
+                                    						    {{$thisYearCount[$i]}},
+                                                            @endfor
+                                    					],
+                                    				}, {
+                                    					label: '{{ $lastYear }}年',
+                                    					
+                                    					borderColor: '#f2cf01',
+                                    					data: [
+                                    					     @for($i= 0 ;$i<= 11 ; $i++ )
+                                    						    {{$lastYearCount[$i]}},
+                                                            @endfor
+                                    					],
+                                    				}]
+                                    			},
+                                    			options: {}
+                                    		});
+                                    		
+                                    		var chart6 = new Chart(ctx6,{
+                                    			type: 'line',
+                                    			data: {
+                                    				labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月','12月'],
+                                    				datasets: [{
+                                    					label: '{{ $thisYear}}年',
+                                    					
+                                    					borderColor: '#65ace4',
+                                    					data: [
+                                    						@for($i= 0 ;$i<= 11 ; $i++ )
+                                    						    {{$thisYearPrice[$i]}},
+                                                            @endfor
+                    
+                                    					],
+                                    				}, {
+                                    					label: '{{ $lastYear }}年',
+                                    					
+                                    					borderColor: '#f2cf01',
+                                    					data: [
+                                    						@for($i= 0 ;$i<= 11 ; $i++ )
+                                    						    {{$lastYearPrice[$i]}},
+                                                            @endfor
+                                    					],
+                                    				}]
+                                    			},
+                                    			options: {}
+                                    		});
+                                    	@endif
+                                    }
+                                
+                                </script>
                             </div>
                         </div>
                     </div>    
